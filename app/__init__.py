@@ -2,13 +2,11 @@ import sqlite3
 
 from flask import Flask, g, app
 
-DATABASE = 'database.db'
-
 
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
+        db = g._database = sqlite3.connect(app.config['DATABASE'])
     return db
 
 
