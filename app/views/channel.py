@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 
-from app.lib.pagination import paginate
+from app.pagination import paginate
 from app.models import channels as model
 
 blueprint = Blueprint('channel', __name__)
