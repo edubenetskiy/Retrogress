@@ -12,6 +12,10 @@
 pipenv install
 ```
 
+An SQLite database should be created before first run.
+Database schema can be found in the file file `database/schema.sql`.
+Path to database file should be specified in the configuration key `DATABASE` in the file `config.py`.
+
 ## Usage
 
 ```
