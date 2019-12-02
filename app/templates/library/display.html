@@ -1,0 +1,24 @@
+{% extends('base.html') %}
+{% block title %}
+    Main Page
+{% endblock %}
+{% block main %}
+    <section id="my-channels">
+        <h1>Feeds</h1>
+        {% if channels %}
+            <ol id="my-channels-list">
+                {% for channel in channels %}
+                    <li>
+                        <h2>
+                            <a href="{{ url_for('channel.display', channel_id=channel.id) }}">{{ channel.title }}</a>
+                        </h2>
+                        <code>{{ channel.url }}</code>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <p>You have not subscribed to any feeds yet.</p>
+        {% endif %}
+        <a href="{{ url_for('library.new') }}" class="button primary">Add new subscription</a>
+    </section>
+{% endblock %}

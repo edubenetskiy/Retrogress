@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %} &ndash; Retrogress</title>
+        <link rel="stylesheet" href="../static/base.css">
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    <header>
+        <h1><a href="{{ url_for('home.index') }}">Retrogress</a></h1>
+        <h2>a simple RSS reader</h2>
+    </header>
+{% endblock %}
+<main>
+    {% if get_flashed_messages() %}
+        <section id="flashed-messages">
+            {% for category, message in get_flashed_messages(with_categories=True) %}
+                <article class="{{ category }} message">
+                    <h1 class="message-title">{{ category | capitalize }}</h1>
+                    <p class="message-text">{{ message }}</p>
+                </article>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    {% block main %}
+    {% endblock %}
+</main>
+<footer>
+    <p> Retrogress — an RSS aggregator <br> &copy; Egor Dubenetskiy, 2019</p>
+</footer>
+</body>
+</html>

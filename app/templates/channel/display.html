@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ channel.title }}
+{% endblock %}
+{% block header %}
+    <header class="channel-header">
+        <p>
+            <a href="{{ url_for('library.display') }}">&longleftarrow; Back to Library</a>
+        </p>
+        <h1>{{ channel.title }}</h1>
+        <p>Total {{ page.total_items }} posts on {{ page.total_pages }} pages.</p>
+        <p>Fetched from: <a href="{{ channel.url }}"><code>{{ channel.url }}</code></a></p>
+        <form action="">
+            <button formaction="{{ url_for('channel.update', channel_id=channel.id) }}"
+                    formmethod="post"
+                    class="primary button" type="submit">
+                Refresh
+            </button>
+            <button formaction="{{ url_for('channel.unsubscribe', channel_id=channel.id) }}" formmethod="POST"
+                    class="destructive button" type="submit">
+                Unsubscribe
+            </button>
+        </form>
+    </header>
+{% endblock %}
+{% block main %}
+    <section class="channel-view">
+        <main>
+            {% if page.items %}
+                {% for item in page.items %}
+                    <article class="channel-item">
+                        <header>
+                            <h1>
+                                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                            </h1>
+                        </header>
+                        <main>
+                            <p>{{ item.description | safe }}</p>
+                        </main>
+                        <footer>
+                            <p>{{ item.publication_date.strftime('%Y-%m-%d %H:%M %Z') }}</p>
+                        </footer>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <p>No items yet.</p>
+            {% endif %}
+        </main>
+        <nav>
+            <p>Pages:
+                {% for page_number in range(1, page.total_pages + 1) %}
+                    {% if page_number == page.ordinal %}
+                        <span class="active page">{{ page_number }}</span>
+                    {% else %}
+                        {% set page_url = url_for('channel.display', channel_id=channel.id, page=page_number) %}
+                        <a class="page button" href="{{ page_url }}">{{ page_number }}</a>
+                    {% endif %}
+                {% endfor %}
+            </p>
+        </nav>
+    </section>
+{% endblock %}

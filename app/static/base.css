@@ -1,0 +1,192 @@
+html {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    margin: 40px auto;
+    background-color: #fdf6e3;
+    color: #073642;
+    padding: 20px;
+    max-width: 35rem;
+}
+
+pre, code {
+    background-color: hsl(0, 0%, 93%);
+    padding: .2em .4em;
+    border: none;
+    border-radius: .1em;
+    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+}
+
+p {
+    margin: 0.75em 0;
+}
+
+a {
+    color: #cb4b16;
+}
+
+a:visited {
+    color: #cb4b16;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: hsl(180, 100%, 25%);
+    margin: 0.75em 0 0.25em;
+}
+
+form {
+    margin-bottom: .75em;
+}
+
+header {
+    color: teal;
+    border-bottom: 0.15em solid crimson;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+footer {
+    color: crimson;
+    border-top: 0.075em solid crimson;
+    margin-top: 1.5em;
+}
+
+.message {
+    background-color: lightblue;
+    padding: 2em;
+    margin: 2em -2em;
+    border-radius: 1em;
+}
+
+.error.message {
+    background-color: lightcoral;
+}
+
+article.channel-item {
+    padding: 2em;
+    margin: 2em -2em;
+    border-radius: 1em;
+}
+
+article.channel-item:nth-child(odd) {
+    background-color: #F7FCE3;
+}
+
+article.channel-item:nth-child(even) {
+    background-color: #FCE9E3;
+}
+
+article.channel-item img {
+    max-width: 100%;
+}
+
+article.channel-item pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    border-radius: 1em;
+    padding: 1.5em;
+}
+
+article.channel-item code {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    border-radius: 1em;
+    padding: 0.3em 0.5em;
+}
+
+.button, button {
+    display: inline-block;
+    cursor: pointer;
+    padding: .5em .75em;
+    border: .1em solid #cb4b16;
+    border-radius: .3em;
+    background-color: white;
+    color: #cb4b16;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button:hover, button:hover {
+    background-color: hsl(18, 80%, 95%);
+}
+
+
+.button.disabled {
+    cursor: not-allowed;
+    color: grey;
+    background-color: lightgray;
+}
+
+.button.disabled:hover {
+    background-color: lightgray;
+}
+
+.button.primary {
+    border: none;
+    background-color: hsl(180, 100%, 25%);
+    color: white;
+}
+
+.button.primary:hover {
+    background-color: hsl(180, 100%, 30%);
+}
+
+.button.destructive {
+    background-color: hsl(330, 80%, 44%);
+    color: white;
+}
+
+.button.destructive:hover {
+    background-color: hsl(330, 80%, 50%);
+}
+
+input {
+    line-height: 1.7;
+    padding: .3em .7em;
+}
+
+form.flex {
+    width: 100%;
+}
+
+form.flex > * {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+form.flex > *:not(:last-child) {
+    margin-bottom: .5em;
+}
+
+form.flex label span {
+    flex: 0 1 auto;
+    margin-right: .3em;
+}
+
+form.flex label input,
+form.flex button {
+    flex: 0 1 100%;
+}
+
+.page {
+    user-select: none;
+    padding: .3em .5em;
+    border: .1em solid;
+    border-radius: .75em;
+}
+
+.page.active {
+    color: teal;
+    font-weight: bold;
+}
