@@ -31,7 +31,8 @@ class Channel:
         cursor.execute(
             "select title, guid, link, description, publication_date "
             "from item "
-            "where item.channel_id = ?",
+            "where item.channel_id = ? "
+            "order by publication_date desc",
             (self.id,))
         rows = cursor.fetchall()
 
