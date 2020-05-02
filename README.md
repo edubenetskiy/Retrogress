@@ -1,6 +1,6 @@
 # Retrogress
 
-> A simple web-based RSS aggregator
+A simple web-based RSS aggregator written in Python.
 
 ## Background
 
